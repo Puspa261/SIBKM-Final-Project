@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Categories</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5" layout:fragment="content">
+      <h3 class="pt-5">Category of Book</h3>
+
+      <!-- Grid -->
+      <div class="my-3 user">
+        <div class="row bg-subtitle">
+          <p><i class="fa-regular fa-clock fa-lg categories"></i>Categories</p>
+        </div>
+        <div class="row px-3">
+          <button
+            type="button"
+            class="btn btn-outline-dark create-kategori my-3 py-1"
+            data-bs-toggle="modal"
+            data-bs-target="#create"
+          >
+            Add Category
+          </button>
+        </div>
+        <div class="row px-3 pb-3">
+          <!-- Table -->
+          <table
+            class="table table-hover table-striped table-bordered mt-4"
+            id="table-kategori"
+            style="width: 100%"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th class="col-1 text-center">No</th>
+                <th class="col-3 text-center">Name</th>
+                <th class="col-3 text-center">Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal Create -->
+      <div
+        class="modal fade"
+        id="create"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Create Category
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="input-group my-2">
+                  <span
+                    class="input-group-text fw-bold bg-dark border-black"
+                    id="name"
+                  >
+                    Name
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control create create-name"
+                    aria-label="Sizing example input"
+                    aria-describedby="name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary py-1 px-4"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  id="create-kategori"
+                  type="submit"
+                  class="btn btn-outline-success py-1 px-4"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Update -->
+      <div
+        class="modal fade"
+        id="updateKategori"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Update Category
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="input-group my-2">
+                  <span
+                    class="input-group-text fw-bold bg-dark border-black"
+                    id="name"
+                  >
+                    Name
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control update update-name"
+                    aria-label="Sizing example input"
+                    aria-describedby="name"
+                    required
+                  />
+                </div>
+                <input type="hidden" class="update-id" />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary py-1 px-4"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  id="update-kategori"
+                  type="submit"
+                  class="btn btn-outline-success py-1 px-4"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_admin/kategori.js}"></script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+.bg-form {
+    background-color: #4c4c4c;
+    /* width: 100%; */
+    border-radius: 10px;
+}
+
+.bg-form h1{
+    color: white;
+}
+
+.bg-form {
+    color: white;
+}
+
+.preview-image {
+    max-height: 200px;
+    border-radius: 3px;
+}
+

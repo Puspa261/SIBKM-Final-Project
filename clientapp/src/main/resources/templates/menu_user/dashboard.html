@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/main.html}"
+>
+  <head>
+    <title>Kalong E-Library</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="text-center" layout:fragment="content">
+      <!-- Carousel -->
+      <div
+        id="carouselExampleAutoplaying"
+        class="container carousel carousel-dark slide mt-5 mb-3"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              th:src="@{/img/Edu1_Mesa de trabajo 1.png}"
+              class="d-block w-100"
+              width="30px"
+              alt="..."
+            />
+            <div class="carousel-caption d-none d-md-block"></div>
+          </div>
+          <div class="carousel-item">
+            <img th:src="@{/img/Asset 1.png}" class="d-block w-100" alt="..." />
+            <div class="carousel-caption d-none d-md-block"></div>
+          </div>
+          <div class="carousel-item">
+            <img
+              th:src="@{/img/CorosNew2.png}"
+              class="d-block w-100"
+              alt="..."
+            />
+            <div class="carousel-caption d-none d-md-block"></div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleAutoplaying"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+
+      <h1 class="fw-bold p-2">Books</h1>
+
+      <!-- Card -->
+      <div class="container">
+        <div
+          class="row row-cols-md-4 d-flex justify-content-center"
+          id="books"
+        ></div>
+      </div>
+
+      <!-- Hasil Search -->
+      <div id="hasilPencarian"></div>
+      
+
+      <!-- Modal Detail Buku-->
+      <div
+        class="modal fade"
+        id="book"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content detail-buku">
+            <div class="modal-header d-flex justify-content-center">
+              <h2 class="modal-title fs-4 fw-bold" id="exampleModalLabel">
+                Detail Buku
+              </h2>
+            </div>
+            <div class="modal-body">
+              <center>
+                <img class="d-block" alt="book" id="detail-img" />
+              </center>
+              <div class="my-3">
+                <table class="table table-border text-start">
+                  <tbody>
+                    <tr>
+                      <input type="text" id="detail-id" hidden />
+                    </tr>
+                    <tr>
+                      <th class="col-5">Book Title</th>
+                      <td class="col-8" id="detail-judul"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">Category</th>
+                      <td class="col-8" id="detail-category"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">Author</th>
+                      <td class="col-8" id="detail-pengarang"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">Publisher</th>
+                      <td class="col-8" id="detail-penerbit"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">Year of Publication</th>
+                      <td class="col-8" id="detail-tahun"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">ISBN</th>
+                      <td class="col-8" id="detail-isbn"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5">Synopnis</th>
+                      <td class="col-8" id="detail-sinopsis"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_user/book.js}"></script>
+      <script th:src="@{/js/menu_user/search.js}"></script>
+    </div>
+  </body>
+</html>

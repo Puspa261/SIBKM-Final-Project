@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar</title>
+  </head>
+  <body>
+    <div th:fragment="sidebar">
+      <nav class="navbar fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" th:href="@{/admin}">
+            <img
+              th:src="@{/img/ikon-White.png}"
+              alt="Bootstrap"
+              width="35"
+              height="35"
+            />
+            Kalong E-Library
+          </a>
+          <button
+            class="navbar-toggler border-0 btn-sidebar p-2"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <i class="fa-solid fa-list fa-lg" style="color: #ffffff"></i>
+          </button>
+          <div
+            class="offcanvas offcanvas-start sidebar"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <div class="offcanvas-header justify-content-center">
+              <a
+                class="offcanvas-title navbar-brand"
+                id="offcanvasNavbarLabel"
+                th:href="@{/admin}"
+              >
+                Kalong E-Library
+              </a>
+            </div>
+            <div class="offcanvas-body d-flex flex-column p-0 m-0">
+              <ul class="navbar-nav justify-content-start flex-grow-1">
+                <li class="nav-item mt-3">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/home-1.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/admin}"
+                      >Home</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/home-1.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/home}"
+                      >Library</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/users-1.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/admins}"
+                      >Users</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/kategori.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/kategori}"
+                      >Categories</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/books-1.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/book}"
+                      >Books</a
+                    >
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <div class="d-flex flex-row align-items-center">
+                    <img
+                      th:src="@{/img/history.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a
+                      class="nav-link active menu-sidebar"
+                      aria-current="page"
+                      th:href="@{/historyAdmin}"
+                      >Histories</a
+                    >
+                  </div>
+                </li>
+                <li
+                  class="nav-item logout"
+                  data-bs-toggle="modal"
+                  data-bs-target="#logout"
+                >
+                  <div class="d-flex flex-row align-items-center ms-1">
+                    <img
+                      th:src="@{/img/logout.png}"
+                      alt="Bootstrap"
+                      width="23"
+                      height="20"
+                    />
+                    <a class="nav-link active menu-sidebar" aria-current="page"
+                      >Logout</a
+                    >
+                  </div>
+                </li>
+              </ul>
+              <div
+                class="profile-sidebar d-flex flex-row align-items-center button py-3 ps-4"
+                data-bs-toggle="modal"
+                data-bs-target="#profile"
+                type="button"
+                onclick="getUserProfile()"
+              >
+                <p class="card-title name-sidebar">
+                  <span id="profile-name"></span>
+                  <br />
+                  <span id="profile-role"></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Modal Profile -->
+      <div
+        class="modal fade"
+        id="profile"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content modal-profile">
+            <div class="modal-body">
+              <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                <b>Profile</b>
+              </h1>
+              <div class="card card-profile" style="width: 18rem">
+                <img
+                  class="card-img-top img-profile mt-3 border-profile"
+                  height="130px"
+                  id="profile-image"
+                  alt="   "
+                  src=""
+                />
+                <h5
+                  class="card-title pt-3 title-profile"
+                  id="profile-name"
+                ></h5>
+                <div class="card-body card-body-profile">
+                  <input type="hidden" id="profile-id" />
+                  <div class="input-group mt-0">
+                    <span
+                      class="input-group-text fw-bold"
+                      id="email"
+                      style="width: 5rem"
+                    >
+                      Email :
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="email"
+                      id="profile-email"
+                      disabled
+                    />
+                  </div>
+                  <div class="input-group mt-2">
+                    <span
+                      class="input-group-text fw-bold"
+                      id="phone"
+                      style="width: 5rem"
+                    >
+                      Phone :
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="phone"
+                      id="profile-phone"
+                      disabled
+                    />
+                  </div>
+                  <input type="hidden" id="update-id" />
+                </div>
+                <a
+                  class="btn btn-profile mt-2 border-white"
+                  data-bs-toggle="modal"
+                  data-bs-target="#update"
+                  id="btn-update"
+                  >Update Profile</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Update -->
+      <div
+        class="modal fade"
+        id="update"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content modal-profile">
+            <div class="modal-body">
+              <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">
+                <b>Update Profile</b>
+              </h1>
+              <div class="card card-profile" style="width: 18rem">
+                <img
+                  class="card-img-top img-profile mt-3 border-profile"
+                  height="130px"
+                  id="old-image"
+                  alt="    "
+                  src=""
+                />
+
+                <label for="update-image">
+                  <i class="fa-solid fa-cloud-arrow-up icon-image"></i>
+                </label>
+                <input
+                  class="form-control up-image-prof"
+                  type="file"
+                  id="update-image"
+                />
+
+                <h5 class="card-title pt-3 title-profile" id="update-title">
+                  Card title
+                </h5>
+                <div class="card-body card-body-profile">
+                  <input type="hidden" id="update-id" />
+                  <div class="input-group">
+                    <span
+                      class="input-group-text fw-bold"
+                      id="name"
+                      style="width: 5rem"
+                    >
+                      Name :
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="name"
+                      id="update-name"
+                      disabled
+                    />
+                  </div>
+                  <div class="input-group mt-2">
+                    <span
+                      class="input-group-text fw-bold"
+                      id="email"
+                      style="width: 5rem"
+                    >
+                      Email :
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="email"
+                      id="update-email"
+                      required
+                    />
+                  </div>
+                  <div class="input-group mt-2">
+                    <span
+                      class="input-group-text fw-bold"
+                      id="phone"
+                      style="width: 5rem"
+                    >
+                      Phone :
+                    </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      aria-label="Sizing example input"
+                      aria-describedby="phone"
+                      id="update-phone"
+                      required
+                    />
+                  </div>
+                  <input type="hidden" id="update-id" />
+                </div>
+                <div class="btn-update d-flex justify-content-between mt-2">
+                  <button
+                    type="button"
+                    class="btn btn-outline-danger py-1 px-4"
+                    data-bs-dismiss="modal"
+                  >
+                    Exit
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-success py-1 px-4"
+                    id="update-profile"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Logout -->
+      <div
+        class="modal fade"
+        id="logout"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1
+                class="modal-title fs-5"
+                id="staticBackdropLabel"
+                style="color: red"
+              >
+                <b>LOGOUT</b>
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h5>Are you sure want to logout?</h5>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-outline-secondary py-1 px-4"
+                data-bs-dismiss="modal"
+              >
+                No
+              </button>
+              <form th:action="@{/logout}" th:method="POST">
+                <button class="btn btn-outline-primary py-1 px-4" type="submit">
+                  Yes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

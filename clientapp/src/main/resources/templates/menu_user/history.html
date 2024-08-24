@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/main.html}"
+>
+  <head>
+    <title>History of Booking</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container" layout:fragment="content">
+      <h3 class="pt-4 fw-bold">History of Booking</h3>
+
+      <!-- Grid -->
+      <div class="my-3 user bg-light tbl-booking">
+        <div class="row bg-subtitle mb-3">
+          <p class="ms-2">
+            <i class="fa-regular fa-clock fa-lg categories"></i>Histories
+          </p>
+        </div>
+        <div class="row px-3 pb-3">
+          <!-- Table -->
+          <table
+            class="table table-hover table-striped table-bordered mt-4"
+            id="table-kategori"
+            style="width: 100%"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th class="col-1 text-center">No</th>
+                <th class="col-3 text-center">Tanggal Pinjam</th>
+                <th class="col-3 text-center">Tanggal kembali</th>
+                <th class="col-3 text-center">Buku</th>
+                <th class="col-3 text-center">Status</th>
+                <th class="col-3 text-center">Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+
+        <form>
+          <input type="hidden" class="update-id" />
+          <input type="hidden" class="update-pinjam" />
+          <input type="hidden" class="update-kembali" />
+          <input type="hidden" class="update-buku" />
+          <input type="hidden" class="update-guest" />
+          <input type="hidden" class="update-status" />
+        </form>
+      </div>
+
+      <!-- Modal Update -->
+      <!-- <div
+        class="modal fade"
+        id="updateKategori"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                Update Category
+              </h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <form>
+              <div class="modal-body">
+                <div class="input-group my-2">
+                  <span
+                    class="input-group-text fw-bold bg-dark border-black"
+                    id="name"
+                  >
+                    Name
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control update update-name"
+                    aria-label="Sizing example input"
+                    aria-describedby="name"
+                    required
+                  />
+                </div>
+                <input type="hidden" class="update-id" />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary py-1 px-4"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <button
+                  id="update-kategori"
+                  type="submit"
+                  class="btn btn-outline-success py-1 px-4"
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_user/history.js}"></script>
+    </div>
+  </body>
+</html>

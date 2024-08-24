@@ -1,0 +1,15 @@
+.histories {
+    margin-top: 6px;
+}
+
+#detail-img{
+    max-width: 150px;
+    max-height: 200px;
+}
+
+.detail-buku img {
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2) ;
+    object-fit: cover;
+}
+

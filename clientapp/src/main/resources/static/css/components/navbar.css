@@ -1,0 +1,112 @@
+* {
+    font-family: 'Signika', sans-serif;
+}
+
+body {
+  background-color: #bebebe;
+  /* background: #DA4453; 
+  background: -webkit-linear-gradient(to right, #89216B, #DA4453);
+  background: linear-gradient(to right, #89216B, #DA4453); */
+  /* background-color: #f1d9e1; */
+}
+
+.btn-light:hover {
+  background-color: #878787;
+  /* border: 1px solid #ffffff; */
+}
+
+.btn-dropdown {
+  background-color: #a3a3a3;
+}
+
+.btn-dropdown:hover, .btn-profile:hover {
+  background-color: #d6d6d6;
+}
+
+.btn-profile, .btn-update {
+  margin: 0 15px;
+}
+
+.btn-profile, .btn-profile:active, .modal-header,
+#name, #email, #phone, #role{
+  background-color: #4c4c4c;
+  color: white;
+  text-align: center;
+}
+
+.card-profile {
+  border: none;
+  background: transparent;
+}
+
+.dropdown-item:active,
+.btn-navbar:active {
+  background-color: #bebebe;
+  color: rgb(65, 65, 65);
+}
+
+.img-profile {
+  width: 50%;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+  /* background-size: cover; */
+  object-fit: cover;
+}
+
+.img-profile, .card-profile, .title-profile{
+  margin: 0 auto;
+}
+
+.navbar {
+    box-shadow: 0 0 10px #5d5c5c;
+    background-color: #4c4c4c;
+    font-size: 18.5px;
+}
+
+.navbar a {
+  color: white;
+}
+.navbar a:hover {
+  color: rgb(255, 255, 255);
+}
+
+.nav-item:hover {
+  background-color: #bebebe;
+  border-radius: 10px;
+}
+
+.nav-link:hover {
+  color: rgb(90, 90, 90);
+}
+
+
+.modal-profile {
+  width: 65%;
+  border-radius: 5%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  margin: 0 auto;
+}
+
+#update-email, #update-phone {
+  box-shadow: none !important;
+    border: 1px solid #e2e3e5 !important;
+}
+
+.border-profile {
+  border-top-left-radius: 50% !important;
+  border-top-right-radius: 50% !important;
+}
+
+.icon-image {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: -25px;
+  margin-left: 60px;
+  box-shadow: 10px;
+}
+
+.up-image-prof {
+  display: none;
+  visibility: none;
+}

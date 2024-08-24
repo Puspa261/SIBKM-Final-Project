@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/main.html}"
+>
+  <head>
+    <title>Booking</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
+      layout:fragment="content"
+    >
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 m-5">
+            <form
+              class="bg-form row shadow-lg ps-2 pe-4 py-3"
+              action="#"
+              novalidate
+            >
+              <div class="m-2">
+                <h1 class="text-center">Form Booking</h1>
+              </div>
+              <!-- Id User -->
+              <div class="col-md-12">
+                <input type="text" class="form-control" id="userId" hidden />
+              </div>
+              <!-- NameUser -->
+              <div class="col-md-12 m-2">
+                <label for="userName" class="form-label"
+                  >User <span class="text-danger">*</span></label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="userName"
+                  disabled
+                />
+              </div>
+
+              <!-- Tanggal Pinjam -->
+              <div class="col-md-12 m-2">
+                <label for="tgl_pinjam" class="form-label"
+                  >Tanggal Pinjam <span class="text-danger">*</span></label
+                >
+                <input
+                  type="date"
+                  class="txtDate form-control bg-white"
+                  id="tgl_pinjam"
+                  required
+                />
+                <div class="valid-feedback">Date validated</div>
+                <div class="invalid-feedback">Please enter a valid Date</div>
+              </div>
+
+              <!-- Tanggal Kembali -->
+              <div class="col-md-12 m-2">
+                <label for="tgl_kembali" class="form-label"
+                  >Tanggal Kembali <span class="text-danger">*</span></label
+                >
+                <input
+                  type="date"
+                  class="form-control bg-white"
+                  id="tgl_kembali"
+                  required
+                />
+                <div class="valid-feedback">Date validated</div>
+                <div class="invalid-feedback">Please enter a valid Date</div>
+              </div>
+
+              <!-- select buku -->
+              <div class="col-md-12 m-2">
+                <label for="list-buku" class="form-label"
+                  >Pilih Buku <span class="text-danger">*</span></label
+                >
+                <select
+                  class="form-select"
+                  aria-label="Default selext example"
+                  aria-describedby="up-list-buku"
+                  id="list-buku"
+                >
+                  <option>Choose a book</option>
+                </select>
+                <div class="valid-feedback">Selection validated</div>
+                <div class="invalid-feedback">Please select a valid option</div>
+              </div>
+
+              <!-- submit button -->
+              <div class="col-md-12 m-2 d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary me-2 px-3"
+                  onclick="window.location.href='/home';"
+                >
+                  Cancel
+                </button>
+                <button id="bookingBtn" class="btn btn-primary" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/date.js}"></script>
+      <script th:src="@{/js/menu_user/booking.js}"></script>
+    </div>
+  </body>
+
+  <!-- <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener(
+      "submit",
+      (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+        }
+        form.classList.add("was-validated");
+        console.log("submit");
+      },
+      false
+    );
+  </script> -->
+</html>

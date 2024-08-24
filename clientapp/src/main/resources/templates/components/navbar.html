@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navbar</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg" th:fragment="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand pb-1" th:href="@{/home}">
+          <img
+            th:src="@{/img/ikon-White.png}"
+            alt="Bootstrap"
+            width="35"
+            height="35"
+          />
+          Kalong E-Library
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav pe-2">
+            <li class="nav-item px-1">
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'home' ? 'active fw-bold text-light' : ''}"
+                th:href="@{/home}"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item px-1">
+              <a
+                class="nav-link"
+                th:classappend="${isActive == 'booking' ? 'active fw-bold text-light' : ''}"
+                th:href="@{/booking}"
+                sec:authorize="hasRole('GUEST')"
+                >Booking</a
+              >
+            </li>
+            <li class="nav-item px-1">
+              <a
+                class="nav-link"
+                th:href="@{/history}"
+                sec:authorize="hasRole('GUEST')"
+                >History</a
+              >
+            </li>
+
+            <li class="nav-item px-1 dropdown">
+              <a
+                class="nav-link dropdown-toggle text-light"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                id="dropdownMenu2"
+              >
+                Category
+              </a>
+              <ul class="dropdown-menu" id="dropdown-kategori"></ul>
+            </li>
+
+            <li class="nav-item pe-1 ps-3">
+              <a
+                class="nav-link"
+                th:href="@{/admin}"
+                sec:authorize="hasRole('ADMIN')"
+                >Admin</a
+              >
+            </li>
+          </ul>
+          <div class="d-flex flex-lg-row">
+            <div class="wrap-user">
+              <div class="dropdown">
+                <button
+                  class="btn btn-dropdown dropdown-toggle px-3 border-white"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  th:text="${name}"
+                ></button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      data-bs-toggle="modal"
+                      data-bs-target="#profile"
+                      type="button"
+                      onclick="getUserProfile()"
+                    >
+                      <i class="fa-solid fa-user pe-1"></i> Profile
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      class="dropdown-item"
+                      id="logout"
+                      type="submit"
+                      data-bs-toggle="modal"
+                      data-bs-target="#staticBackdrop"
+                    >
+                      <i
+                        class="fa-solid fa-arrow-right-from-bracket"
+                        style="padding-right: 2px"
+                      ></i>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+
+                <!-- Modal Profile -->
+                <div
+                  class="modal fade"
+                  id="profile"
+                  tabindex="-1"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content modal-profile">
+                      <div class="modal-body">
+                        <h1
+                          class="modal-title fs-5 text-center"
+                          id="exampleModalLabel"
+                        >
+                          <b>Profile</b>
+                        </h1>
+                        <div class="card card-profile" style="width: 18rem">
+                          <img
+                            class="card-img-top img-profile mt-3 border-profile"
+                            height="130px"
+                            id="profile-image"
+                            alt="   "
+                            src=""
+                          />
+                          <h5
+                            class="card-title pt-3 title-profile"
+                            id="profile-name"
+                          ></h5>
+                          <div class="card-body card-body-profile">
+                            <input type="hidden" id="profile-id" />
+                            <div class="input-group mt-0">
+                              <span
+                                class="input-group-text fw-bold"
+                                id="email"
+                                style="width: 5rem"
+                              >
+                                Email :
+                              </span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="email"
+                                id="profile-email"
+                                disabled
+                              />
+                            </div>
+                            <div class="input-group mt-2">
+                              <span
+                                class="input-group-text fw-bold"
+                                id="phone"
+                                style="width: 5rem"
+                              >
+                                Phone :
+                              </span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="phone"
+                                id="profile-phone"
+                                disabled
+                              />
+                            </div>
+                            <input type="hidden" id="update-id" />
+                          </div>
+                          <a
+                            class="btn btn-profile mt-2 border-white"
+                            data-bs-toggle="modal"
+                            data-bs-target="#update"
+                            id="btn-update"
+                            >Update Profile</a
+                          >
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Update -->
+                <div
+                  class="modal fade"
+                  id="update"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content modal-profile">
+                      <div class="modal-body">
+                        <h1
+                          class="modal-title fs-5 text-center"
+                          id="exampleModalLabel"
+                        >
+                          <b>Update Profile</b>
+                        </h1>
+                        <div class="card card-profile" style="width: 18rem">
+                          <img
+                            class="card-img-top img-profile mt-3 border-profile"
+                            height="130px"
+                            id="old-image"
+                            alt="    "
+                            src=""
+                          />
+
+                          <label for="update-image">
+                            <i
+                              class="fa-solid fa-cloud-arrow-up icon-image"
+                            ></i>
+                          </label>
+                          <input
+                            class="form-control up-image-prof"
+                            type="file"
+                            id="update-image"
+                          />
+
+                          <h5
+                            class="card-title pt-3 title-profile"
+                            id="update-title"
+                          >
+                            Card title
+                          </h5>
+                          <div class="card-body card-body-profile">
+                            <input type="hidden" id="update-id" />
+                            <div class="input-group">
+                              <span
+                                class="input-group-text fw-bold"
+                                id="name"
+                                style="width: 5rem"
+                              >
+                                Name :
+                              </span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="name"
+                                id="update-name"
+                                disabled
+                              />
+                            </div>
+                            <div class="input-group mt-2">
+                              <span
+                                class="input-group-text fw-bold"
+                                id="email"
+                                style="width: 5rem"
+                              >
+                                Email :
+                              </span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="email"
+                                id="update-email"
+                                required
+                              />
+                            </div>
+                            <div class="input-group mt-2">
+                              <span
+                                class="input-group-text fw-bold"
+                                id="phone"
+                                style="width: 5rem"
+                              >
+                                Phone :
+                              </span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                aria-label="Sizing example input"
+                                aria-describedby="phone"
+                                id="update-phone"
+                                required
+                              />
+                            </div>
+                            <input type="hidden" id="update-id" />
+                          </div>
+                          <div
+                            class="btn-update d-flex justify-content-between mt-2"
+                          >
+                            <button
+                              type="button"
+                              class="btn btn-outline-danger py-1 px-4"
+                              data-bs-dismiss="modal"
+                            >
+                              Exit
+                            </button>
+                            <button
+                              type="button"
+                              class="btn btn-outline-success py-1 px-4"
+                              id="update-profile"
+                            >
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Modal Logout -->
+                <div
+                  class="modal fade"
+                  id="staticBackdrop"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1
+                          class="modal-title fs-5"
+                          id="staticBackdropLabel"
+                          style="color: red"
+                        >
+                          <b>LOGOUT</b>
+                        </h1>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <h5>Are you sure want to logout?</h5>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-outline-secondary py-1 px-4"
+                          data-bs-dismiss="modal"
+                        >
+                          No
+                        </button>
+                        <form th:action="@{/logout}" th:method="POST">
+                          <button
+                            class="btn btn-outline-primary py-1 px-4"
+                            type="submit"
+                          >
+                            Yes
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </body>
+</html>

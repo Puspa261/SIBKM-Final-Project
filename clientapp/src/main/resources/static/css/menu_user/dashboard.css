@@ -1,0 +1,110 @@
+.accordion {
+    margin-left: -22px !important;
+}
+
+.accordion-button {
+    height: 30px !important;
+    background-color: white !important;
+    box-shadow: none !important;
+    color: black !important;
+}
+
+/* .accordion-body {
+    text-align: justify;
+} */
+
+.bg-book {
+    padding: 40px;
+    border-radius: 10px 10px 0 0;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-inner {
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+    text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.765);
+}
+
+.carousel-item img {
+    background-size: cover;
+}
+
+.category {
+    margin-top: -5px;
+}
+
+.card-dashboard {
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.299);
+}
+
+.card-img, .card-img-top {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.coba {
+    height: 31px;
+    line-height: 0;
+}
+
+#detail-img{
+    max-width: 150px;
+    max-height: 200px;
+}
+
+.detail-buku img {
+    border-radius: 5px;
+    box-shadow: 2px 4px 8px 0 rgba(0, 0, 0, 0.2) ;
+    object-fit: cover;
+}
+
+.fa-heart {
+    padding-top: 15px;
+}
+
+.hover-card {
+    transition: transform 0.3s ease;
+}
+
+.hover-card:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+h1 {
+    text-shadow: 2px 2px rgba(76, 76, 76, 0.347);
+    color: black;
+}
+
+.img-background {
+    position: absolute;
+    z-index: 0;
+    height: 97%;
+    width: 97%;
+    opacity: 15%;
+    filter: blur(1px);
+    -webkit-filter: blur(10px);
+}
+
+.img-dashboard {
+    max-height: 250px;
+    z-index: 1;
+    object-fit: contain;
+}
+
+.row {
+    --bs-gutter-x: 0;
+}
+
+.subtitle-book {
+    color: rgb(136, 136, 136);
+}
+
+.title-book {
+    font-size: 18px;
+    margin-top: -5px;
+}

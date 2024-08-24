@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Books</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5" layout:fragment="content">
+      <h3 class="pt-5">Books</h3>
+
+      <!-- Grid -->
+      <div class="my-3 user">
+        <div class="row bg-subtitle">
+          <p><i class="fa-solid fa-book fa-lg book"></i>Books</p>
+        </div>
+        <div class="row px-3">
+          <button
+            type="button"
+            class="btn btn-outline-dark create-buku my-3 py-1"
+            onclick="window.location.href='/createBook';"
+          >
+            Add Book
+          </button>
+        </div>
+        <div class="row px-3 pb-3">
+          <!-- Table -->
+          <table
+            class="table table-hover table-striped table-bordered mt-4"
+            id="table-buku"
+            style="width: 100%"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th class="col-1 text-center">No</th>
+                <th class="col-2 text-center">Book Title</th>
+                <th class="col-2 text-center">Category</th>
+                <!-- <th class="col-1 text-center">Author</th>
+                <th class="col-1 text-center">Publisher</th> -->
+                <th class="col-2 text-center">Year of Publication</th>
+                <!-- <th class="col-1 text-center">ISBN</th>
+                <th class="col-1 text-center">Synopsis</th> -->
+                <th class="col-1 text-center">Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+      <!-- Modal Detail Buku-->
+      <div
+        class="modal fade"
+        id="detail-book"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content detail-buku">
+            <div class="modal-header d-flex justify-content-center">
+              <h2 class="modal-title fs-4 fw-bold" id="exampleModalLabel">
+                Detail Buku
+              </h2>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                style="box-shadow: none !important"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <center>
+                <img class="d-block" alt="book" id="detail-img" />
+              </center>
+              <div class="mb-3 mt-2">
+                <table class="table table-border text-start">
+                  <tbody>
+                    <tr>
+                      <input type="text" id="detail-id" hidden />
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Book Title</th>
+                      <td class="col-8" id="detail-judul"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Category</th>
+                      <td class="col-8" id="detail-category"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Author</th>
+                      <td class="col-8" id="detail-pengarang"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Publisher</th>
+                      <td class="col-8" id="detail-penerbit"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Year of Publication</th>
+                      <td class="col-8" id="detail-tahun"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">ISBN</th>
+                      <td class="col-8" id="detail-isbn"></td>
+                    </tr>
+                    <tr>
+                      <th class="col-5 ps-3">Synopnis</th>
+                      <td class="col-8" id="detail-sinopsis"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_admin/crudBook.js}"></script>
+    </div>
+  </body>
+</html>

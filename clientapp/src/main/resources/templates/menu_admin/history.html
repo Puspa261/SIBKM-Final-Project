@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Histories</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5" layout:fragment="content">
+      <h3 class="pt-5">History of Book</h3>
+
+      <!-- Grid -->
+      <div class="my-3 user bg-light tbl-booking">
+        <div class="row bg-subtitle mb-3">
+          <p class="ms-2">
+            <i class="fa-regular fa-clock fa-lg categories"></i>Histories
+          </p>
+        </div>
+        <div class="row px-3 pb-3">
+          <!-- Table -->
+          <table
+            class="table table-hover table-striped table-bordered mt-4"
+            id="table-kategori"
+            style="width: 100%"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th class="col-1 text-center">No</th>
+                <th class="col-3 text-center">Guest</th>
+                <th class="col-2 text-center">Tanggal Pinjam</th>
+                <th class="col-2 text-center">Tanggal kembali</th>
+                <th class="col-3 text-center">Buku</th>
+                <th class="col-3 text-center">Status</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_admin/history.js}"></script>
+    </div>
+  </body>
+</html>

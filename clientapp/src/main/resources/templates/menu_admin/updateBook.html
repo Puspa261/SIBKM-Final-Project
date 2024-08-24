@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Update Book</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
+      layout:fragment="content"
+    >
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8 m-5">
+            <form
+              class="bg-form row shadow-lg ps-2 pe-4 py-3"
+              action="#"
+              novalidate
+            >
+              <div class="m-2">
+                <h1 class="text-center fw-bold">Update Book</h1>
+                <center>
+                  <img
+                    class="d-block preview-image mt-4"
+                    alt="book"
+                    id="old-image-book"
+                    src=""
+                  />
+                </center>
+              </div>
+              <div class="d-flex flex-row">
+                <div class="p-2 flex-fill">
+                  <input type="hidden" class="update-id" />
+
+                  <!-- Choose File -->
+                  <div class="col-md-12 m-2">
+                    <label for="update-image" class="form-label"
+                      >Image of Book <span class="text-danger">*</span></label
+                    >
+                    <input class="form-control" type="file" id="update-image" />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-judul" class="form-label"
+                      >Title of Book <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control update"
+                      placeholder="Title"
+                      id="update-judul"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-pengarang" class="form-label"
+                      >Author <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control update"
+                      placeholder="Author"
+                      id="update-pengarang"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-sinopsis" class="form-label"
+                      >Synopsis <span class="text-danger">*</span></label
+                    >
+                    <textarea
+                      class="form-control update"
+                      placeholder="Synopsis"
+                      id="update-sinopsis"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="p-2 flex-fill">
+                  <div class="col-md-12 m-2">
+                    <label for="update-tahun" class="form-label"
+                      >Year of Publication
+                      <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control update"
+                      placeholder="Year"
+                      id="update-tahun"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-isbn" class="form-label"
+                      >ISBN <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control update"
+                      placeholder="e.g. : 123-456-78-9012-1"
+                      id="update-isbn"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-penerbit" class="form-label"
+                      >Publisher <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control update"
+                      placeholder="Publisher"
+                      id="update-penerbit"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="update-category-book" class="form-label"
+                      >Category <span class="text-danger">*</span></label
+                    >
+                    <select
+                      class="form-select update"
+                      aria-label="Default select example"
+                      id="update-category-book"
+                    >
+                      <option>Select</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <div class="col-md-12 m-2 d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary me-2 px-3"
+                  onclick="window.location.href='/book';"
+                >
+                  Cancel
+                </button>
+                <button id="submitBtn" class="btn btn-primary" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/date.js}"></script>
+      <script th:src="@{/js/menu_admin/updateBook.js}"></script>
+    </div>
+  </body>
+
+  <!-- <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener(
+      "submit",
+      (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+        }
+        form.classList.add("was-validated");
+        console.log("submit");
+      },
+      false
+    );
+  </script> -->
+</html>

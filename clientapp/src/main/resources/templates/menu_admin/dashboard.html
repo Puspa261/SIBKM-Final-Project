@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Admin</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5" layout:fragment="content">
+      <!-- Grid -->
+      <div class="pt-5">
+        <div class="row">
+          <div class="col">
+            <div class="card my-2 me-1">
+              <div class="card-body">
+                <a
+                  class="nav-link d-flex justify-content-center"
+                  th:href="@{/admins}"
+                >
+                  <img
+                    th:src="@{/img/user.png}"
+                    alt="Bootstrap"
+                    width="50"
+                    height="50"
+                  />
+                  <h2 class="pt-2 ps-3">Users</h2>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mx-1 my-2">
+              <div class="card-body">
+                <a
+                  class="nav-link d-flex justify-content-center"
+                  th:href="@{/kategori}"
+                >
+                  <img
+                    th:src="@{/img/kategori-1.png}"
+                    alt="Bootstrap"
+                    width="50"
+                    height="50"
+                  />
+                  <h2 class="pt-2 ps-3">Categories</h2>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card mx-1 my-2">
+              <div class="card-body">
+                <a
+                  class="nav-link d-flex justify-content-center"
+                  th:href="@{/book}"
+                >
+                  <img
+                    th:src="@{/img/books.png}"
+                    alt="Bootstrap"
+                    width="50"
+                    height="50"
+                  />
+                  <h2 class="pt-2 ps-3">Books</h2>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card my-2 ms-1">
+              <div class="card-body">
+                <a
+                  class="nav-link d-flex justify-content-center"
+                  th:href="@{/historyAdmin}"
+                >
+                  <img
+                    th:src="@{/img/history.png}"
+                    alt="Bootstrap"
+                    width="40"
+                    height="40"
+                    class="histories"
+                  />
+                  <h2 class="pt-2 ps-3">Histories</h2>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid -->
+        <div class="my-3 p-3 user">
+          <div class="row">
+            <p><i class="fa-regular fa-clock fa-lg pe-1"></i>Users</p>
+          </div>
+          <div class="row">
+            <!-- Table -->
+            <table
+              class="table table-hover table-striped table-bordered mt-4"
+              id="table-user"
+              style="width: 100%"
+            >
+              <thead class="table-dark">
+                <tr>
+                  <th class="col-1 text-center">No</th>
+                  <th class="col-3 text-center">Name</th>
+                  <th class="col-3 text-center">Email</th>
+                  <th class="col-3 text-center">Phone</th>
+                  <th class="col-3 text-center">Role</th>
+                  <th class="col-2 text-center">Action</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="my-4 p-3 user"></div> -->
+    </div>
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_admin/user.js}"></script>
+    </div>
+  </body>
+</html>

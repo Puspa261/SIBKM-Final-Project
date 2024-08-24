@@ -1,0 +1,51 @@
+.action {
+    margin-left: -13px;
+}
+
+.bg-subtitle {
+    background-color: #e2e3e5;
+    margin: 0;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.categories, .book {
+    padding: 0 5px;
+    margin-top: 28px;
+}
+
+.create-kategori, .create-buku {
+    max-width: 150px;
+    margin-left: 10px;
+}
+
+.input-book {
+    width: 10rem;
+}
+
+.update, .create {
+    box-shadow: none !important;
+    border: 1px solid black !important;
+}
+
+.update-name:active, .update-name:focus, .create-name:active, .create-name:focus{
+    border: 2px solid black !important;
+}
+
+.user {
+    border: 1px solid rgba(128, 128, 128, 0.218);
+    border-radius: 10px;
+}
+
+.dataTables_paginate, .dataTables_info {
+    margin-top: 20px;
+}
+
+.dataTables_wrapper .dataTables_length {
+    margin-bottom: 10px;
+    padding-top: 3px;
+}
+
+.tbl-booking {
+    border-radius: 10px;
+}

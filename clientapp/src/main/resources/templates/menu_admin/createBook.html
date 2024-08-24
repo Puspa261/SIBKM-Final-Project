@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Add Book</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-column min-vh-100 justify-content-center align-items-center"
+      layout:fragment="content"
+    >
+      <div class="container mt-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8 m-5">
+            <form
+              class="bg-form crud-book row shadow-lg ps-2 pe-4 py-3"
+              action="#"
+              novalidate
+            >
+              <div class="m-2">
+                <h1 class="text-center">Create Book</h1>
+              </div>
+              <div class="d-flex flex-row">
+                <div class="p-2 flex-fill">
+                  <!-- Choose File -->
+                  <div class="col-md-12 m-2">
+                    <label for="create-image" class="form-label"
+                      >Image of Book <span class="text-danger">*</span></label
+                    >
+                    <input class="form-control" type="file" id="create-image" />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-judul" class="form-label"
+                      >Title of Book <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="Title"
+                      id="create-judul"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-pengarang" class="form-label"
+                      >Author <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="Author"
+                      id="create-pengarang"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-sinopsis" class="form-label"
+                      >Synopsis <span class="text-danger">*</span></label
+                    >
+                    <textarea
+                      class="form-control create"
+                      placeholder="Synopsis"
+                      id="create-sinopsis"
+                      rows="3"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="p-2 flex-fill">
+                  <div class="col-md-12 m-2">
+                    <label for="create-tahun" class="form-label"
+                      >Year of Publication
+                      <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="Year"
+                      id="create-tahun"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-isbn" class="form-label"
+                      >ISBN <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="e.g. : 123-456-78-9012-1"
+                      id="create-isbn"
+                      required
+                    />
+                  </div>
+
+                  <!-- <div class="col-md-12 m-2 pt-2">
+                    <label for="create-stok" class="form-label"
+                      >Stok <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="Stok"
+                      id="create-stok"
+                      required
+                    />
+                  </div> -->
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-penerbit" class="form-label"
+                      >Publisher <span class="text-danger">*</span></label
+                    >
+                    <input
+                      type="text"
+                      class="form-control create"
+                      placeholder="Publisher"
+                      id="create-penerbit"
+                      required
+                    />
+                  </div>
+
+                  <div class="col-md-12 m-2 pt-2">
+                    <label for="create-category-book" class="form-label"
+                      >Category <span class="text-danger">*</span></label
+                    >
+                    <select
+                      class="form-select create"
+                      aria-label="Default select example"
+                      id="create-category-book"
+                    >
+                      <option>Select</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- submit button -->
+              <div class="col-md-12 m-2 d-flex justify-content-end">
+                <button
+                  type="button"
+                  class="btn btn-secondary me-2 px-3"
+                  onclick="window.location.href='/book';"
+                >
+                  Cancel
+                </button>
+                <button id="submitBtn" class="btn btn-primary" type="submit">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div layout:fragment="js">
+      <script th:src="@{/js/date.js}"></script>
+      <script th:src="@{/js/menu_admin/crudBook.js}"></script>
+    </div>
+  </body>
+
+  <!-- <script>
+    const form = document.querySelector("form");
+
+    form.addEventListener(
+      "submit",
+      (e) => {
+        if (!form.checkValidity()) {
+          e.preventDefault();
+        }
+        form.classList.add("was-validated");
+        console.log("submit");
+      },
+      false
+    );
+  </script> -->
+</html>

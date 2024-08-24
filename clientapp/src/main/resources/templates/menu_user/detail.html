@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/main.html}"
+>
+  <head>
+    <title>Kalong E-Library</title>
+    <!-- <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style> -->
+  </head>
+  <body>
+    <div class="text-center" layout:fragment="content">
+      <h1>Haloo</h1>
+    </div>
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_user/book.js}"></script>
+    </div>
+  </body>
+</html>

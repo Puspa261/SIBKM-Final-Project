@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="~{layout/admin-main.html}"
+>
+  <head>
+    <title>Users</title>
+    <style>
+      * {
+        /* border: 1px solid black; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5" layout:fragment="content">
+      <h3 class="pt-5">Users</h3>
+
+      <!-- Grid -->
+      <div class="my-3 user">
+        <div class="row bg-subtitle pt-3 mb-3 ps-2">
+          <p>
+            <img
+              th:src="@{/img/admin-1.png}"
+              alt="Bootstrap"
+              width="23"
+              height="20"
+            />Users
+          </p>
+        </div>
+        <div class="row px-3 pb-3">
+          <!-- Table -->
+          <table
+            class="table table-hover table-striped table-bordered mt-4"
+            id="table-user"
+            style="width: 100%"
+          >
+            <thead class="table-dark">
+              <tr>
+                <th class="col-1 text-center">No</th>
+                <th class="col-2 text-center">Name</th>
+                <th class="col-2 text-center">Email</th>
+                <th class="col-2 text-center">Phone</th>
+                <th class="col-2 text-center">Role</th>
+                <th class="col-2 text-center">Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- js local -->
+    <div layout:fragment="js">
+      <script th:src="@{/js/menu_admin/user.js}"></script>
+    </div>
+  </body>
+</html>
